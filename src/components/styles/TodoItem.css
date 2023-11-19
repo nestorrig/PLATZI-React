@@ -1,0 +1,30 @@
+li {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--task-bg);
+    border-radius: 24px;
+}
+label {
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-content: center;
+    border: 2px solid var(--accent-1);
+    border-radius: 50%;
+    border-color: var(--accent-1);
+}
+label svg {
+    display: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"]:checked ~ svg {
+    display: block;
+    background-color: var(--completed-task);
+}

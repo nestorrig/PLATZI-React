@@ -1,5 +1,6 @@
 :root {
   --menu-bg: #0A155A;
+  --task-bg: #F5F5F5;
   --icons: #7D80AA;
   --completed-task: #ADBABE;
   --background: #F4F6FD;
@@ -15,6 +16,7 @@
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
+    --task-bg: #0A155A;
     --completed-task: #3D47AF;
     --background: #4F74FF;
     --bold-text: #020417;
@@ -100,4 +102,5 @@ body {
   font-size: 100%;
   font-family: var(--font);
   background-color: var(--background);
+  color: var(--normal-text);
 }

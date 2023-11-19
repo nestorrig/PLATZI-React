@@ -21,6 +21,7 @@ function App() {
         total={25}
       />
       <TodoSearch />
+      <TodoList>
         {defaultTodos.map(todo => (
           <TodoItem
             key={todo.text}
@@ -28,7 +29,6 @@ function App() {
             completed = {todo.completed}
           />
         ))}
-      <TodoList>
         
       </TodoList>
 
