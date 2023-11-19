@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import "./styles/TodoCounter.css"
 function TodoCounter({ total, completed }) {
     return (
         <h1>

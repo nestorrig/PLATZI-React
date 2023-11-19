@@ -1,0 +1,17 @@
+.todoSearch {
+    padding: 8px 32px;
+}
+input[type="text"] {
+    position: relative;
+    padding: 16px;
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+    background-color: var(--completed-task);
+    color: var(--normal-text);
+    border-radius: 24px;
+    outline: none;
+}
+input[type="text"]:focus {
+    box-shadow: 0 0 5px var(--completed-task);
+}
