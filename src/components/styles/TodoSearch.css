@@ -1,7 +1,7 @@
-.todoSearch {
+.TodoSearch {
     padding: 8px 32px;
 }
-input[type="text"] {
+.TodoSearch input[type="text"] {
     position: relative;
     padding: 16px;
     width: 100%;
@@ -12,6 +12,6 @@ input[type="text"] {
     border-radius: 24px;
     outline: none;
 }
-input[type="text"]:focus {
+.TodoSearch input[type="text"]:focus {
     box-shadow: 0 0 5px var(--completed-task);
 }

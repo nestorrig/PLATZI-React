@@ -6,7 +6,7 @@ function TodoItem({ text }) {
     console.log(idTask);
 
     return (
-        <li>
+        <li className="TodoItem">
             <label htmlFor={"Tarea"+idTask}>
                 <input type="checkbox" name="Tarea" id={"Tarea"+idTask} />
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">

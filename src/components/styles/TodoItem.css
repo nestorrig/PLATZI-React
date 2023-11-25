@@ -1,4 +1,4 @@
-li {
+.TodoItem {
     padding: 16px;
     display: flex;
     align-items: center;
@@ -6,7 +6,7 @@ li {
     background-color: var(--task-bg);
     border-radius: 24px;
 }
-label {
+.TodoItem label {
     width: 24px;
     height: 24px;
     display: grid;
@@ -16,16 +16,16 @@ label {
     border-color: var(--accent-1);
     cursor: pointer;
 }
-label svg {
+.TodoItem label svg {
     display: none;
     width: 24px;
     height: 24px;
     border-radius: 50%;
 }
-input[type="checkbox"] {
+.TodoItem input[type="checkbox"] {
     display: none;
 }
-input[type="checkbox"]:checked ~ svg {
+.TodoItem input[type="checkbox"]:checked ~ svg {
     display: block;
     background-color: var(--completed-task);
 }
