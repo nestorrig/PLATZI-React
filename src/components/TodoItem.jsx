@@ -3,8 +3,8 @@ import "./styles/TodoItem.css"
 let idTask = 0;
 function TodoItem({ text }) {
     idTask++
-    console.log(idTask);
-
+    // console.log(idTask);
+// 
     return (
         <li className="TodoItem">
             <label htmlFor={"Tarea"+idTask}>

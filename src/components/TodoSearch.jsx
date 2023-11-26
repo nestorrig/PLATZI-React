@@ -1,15 +1,11 @@
-import { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+// import { useState, useEffect } from "react";
 import "./styles/TodoSearch.css"
 
-function TodoSearch() {
-    const [searchValue, setSearchValue] = useState("");
-    useEffect(() => {
-        if (searchValue === "") {
-            return;
-        }
-        console.log('los valores de searchValue son: ' + searchValue);
-    }, [searchValue]);
-
+function TodoSearch({
+    searchValue,
+    setSearchValue,
+}) {
     return (
         <div className="TodoSearch">
             <input 
