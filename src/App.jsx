@@ -21,7 +21,7 @@ function App() {
         if (searchValue === "") {
             return;
         }
-        console.log('los valores de searchValue son: ' + searchValue);
+        // console.log('los valores de searchValue son: ' + searchValue);
     }, [searchValue]);
   const [todos, setTodos] = useState(defaultTodos);
   const completedTodos = todos.filter(todo => todo.completed).length;
