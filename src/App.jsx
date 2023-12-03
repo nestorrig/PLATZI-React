@@ -33,7 +33,19 @@ function App() {
       return todoText.includes(searchText);
     }
   )
-
+  const handleCheck = (todoText) => {
+    setTodos(todos.map(todo => {
+      if (todo.text === todoText) {
+        return { ...todo, completed: !todo.completed };
+      } else {
+        return todo;
+      }
+    }));
+  }
+  
+  const handleDelete = (todoText) => {
+    setTodos(todos.filter(todo => todo.text !== todoText));
+  }
 
   return (
     <>
@@ -51,6 +63,8 @@ function App() {
             key={todo.text}
             text={todo.text}
             completed = {todo.completed}
+            onCheck={() => handleCheck(todo.text)}
+            onDelete={() => handleDelete(todo.text)}
           />
         ))}
         
