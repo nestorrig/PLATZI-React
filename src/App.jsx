@@ -7,15 +7,28 @@ import { TodoItem } from './components/TodoItem'
 import { CreateTodoButton } from './components/CreateTodoButton'
 
 
-const defaultTodos = [
-  { text: 'Cortar cebolla', completed: true },
-  { text: 'Tomar el Curso de Intro a React.js', completed: false },
-  { text: 'Llorar con la Llorona', completed: true },
-  { text: 'LALALALALA', completed: false },
-  { text: 'Usar estado derivados', completed: false },
-];
+// const defaultTodos = [
+//   { text: 'Cortar cebolla', completed: true },
+//   { text: 'Tomar el Curso de Intro a React.js', completed: false },
+//   { text: 'Llorar con la Llorona', completed: true },
+//   { text: 'LALALALALA', completed: false },
+//   { text: 'Usar estado derivados', completed: false },
+// ];
+// let stringifyTodos = JSON.stringify(defaultTodos);
+// localStorage.setItem('TODOS_V1', stringifyTodos);
 
 function App() {
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+  console.log(parsedTodos);
+
+
   const [searchValue, setSearchValue] = useState("");
     useEffect(() => {
         if (searchValue === "") {
@@ -23,7 +36,7 @@ function App() {
         }
         // console.log('los valores de searchValue son: ' + searchValue);
     }, [searchValue]);
-  const [todos, setTodos] = useState(defaultTodos);
+  const [todos, setTodos] = useState(parsedTodos);
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
 
@@ -33,8 +46,15 @@ function App() {
       return todoText.includes(searchText);
     }
   )
+  
+  const saveTodos = (newTodos) => {
+    const stringifyTodos = JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringifyTodos);
+    setTodos(newTodos);
+  }
+
   const handleCheck = (todoText) => {
-    setTodos(todos.map(todo => {
+    saveTodos(todos.map(todo => {
       if (todo.text === todoText) {
         return { ...todo, completed: !todo.completed };
       } else {
@@ -44,7 +64,7 @@ function App() {
   }
   
   const handleDelete = (todoText) => {
-    setTodos(todos.filter(todo => todo.text !== todoText));
+    saveTodos(todos.filter(todo => todo.text !== todoText));
   }
 
   return (
