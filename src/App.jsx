@@ -5,6 +5,7 @@ import { TodoSearch } from './components/TodoSearch'
 import { TodoList } from './components/TodoList'
 import { TodoItem } from './components/TodoItem'
 import { CreateTodoButton } from './components/CreateTodoButton'
+import useLocalStorage from "./useLocalStorage";
 
 
 // const defaultTodos = [
@@ -18,17 +19,6 @@ import { CreateTodoButton } from './components/CreateTodoButton'
 // localStorage.setItem('TODOS_V1', stringifyTodos);
 
 function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-  console.log(parsedTodos);
-
-
   const [searchValue, setSearchValue] = useState("");
     useEffect(() => {
         if (searchValue === "") {
@@ -36,7 +26,7 @@ function App() {
         }
         // console.log('los valores de searchValue son: ' + searchValue);
     }, [searchValue]);
-  const [todos, setTodos] = useState(parsedTodos);
+    const [todos, setTodos] = useLocalStorage('TODOS_V1', []);
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
 
@@ -47,14 +37,8 @@ function App() {
     }
   )
   
-  const saveTodos = (newTodos) => {
-    const stringifyTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifyTodos);
-    setTodos(newTodos);
-  }
-
   const handleCheck = (todoText) => {
-    saveTodos(todos.map(todo => {
+    setTodos(todos.map(todo => {
       if (todo.text === todoText) {
         return { ...todo, completed: !todo.completed };
       } else {
@@ -64,7 +48,7 @@ function App() {
   }
   
   const handleDelete = (todoText) => {
-    saveTodos(todos.filter(todo => todo.text !== todoText));
+    setTodos(todos.filter(todo => todo.text !== todoText));
   }
 
   return (
