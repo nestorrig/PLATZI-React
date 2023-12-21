@@ -5,7 +5,7 @@ import { TodoSearch } from './components/TodoSearch'
 import { TodoList } from './components/TodoList'
 import { TodoItem } from './components/TodoItem'
 import { CreateTodoButton } from './components/CreateTodoButton'
-import useLocalStorage from "./useLocalStorage";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 
 // const defaultTodos = [
