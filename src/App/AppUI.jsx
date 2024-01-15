@@ -1,9 +1,5 @@
 /* eslint-disable react/prop-types */
-import { TodoCounter } from "../components/TodoCounter";
-import { TodoSearch } from "../components/TodoSearch";
-import { TodoList } from "../components/TodoList";
-import { TodoItem } from "../components/TodoItem";
-import { CreateTodoButton } from "../components/CreateTodoButton";
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Loading } from "../components";
 
 function AppUI({
     error,
@@ -23,10 +19,7 @@ function AppUI({
             <TodoList>
             {loading && (
             <>
-                {/* <TodosLoading />
-                <TodosLoading />
-                <TodosLoading /> */}
-                <p>Estamos cargando, no desesperes...</p>
+                <Loading />
             </>
             )}
             {error && <p>Desespera, hubo un error...</p>}
