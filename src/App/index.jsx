@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import '../reset.css'
-import useLocalStorage from "../hooks/useLocalStorage";
+import {useLocalStorage} from "../hooks/useLocalStorage";
 import { AppUI } from "./AppUI";
 
 
@@ -22,7 +22,14 @@ function App() {
         }
         // console.log('los valores de searchValue son: ' + searchValue);
     }, [searchValue]);
-    const [todos, setTodos] = useLocalStorage('TODOS_V1', []);
+
+  const {
+    item: todos,
+    setItem: setTodos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1', []);
+
   const completedTodos = todos.filter(todo => todo.completed).length;
   const totalTodos = todos.length;
 
@@ -50,6 +57,8 @@ function App() {
   return (
     <>
       <AppUI
+        error={error}
+        loading={loading}
         completedTodos={completedTodos}
         totalTodos={totalTodos}
         searchValue={searchValue}

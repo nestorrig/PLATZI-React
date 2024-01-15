@@ -1,27 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
-function useLocalStorage(key, initialValue) {
-    // Obtén del localStorage o usa un valor inicial si no hay nada en el localStorage
-    const [storedValue, setStoredValue] = useState(() => {
-        try {
-            const item = window.localStorage.getItem(key);
-            return item ? JSON.parse(item) : initialValue;
-        } catch (error) {
-            console.log(error);
-            return initialValue;
-        }
-    });
-
-    // Guarda en el localStorage cuando el valor cambie
+export function useLocalStorage(itemName, initialValue) {
+    const [item, setItem] = useState(initialValue);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
-        try {
-            window.localStorage.setItem(key, JSON.stringify(storedValue));
-        } catch (error) {
-            console.log(error);
-        }
-    }, [key, storedValue]);
+        setTimeout(() => {
+            try {
+                const localStorageItem = localStorage.getItem(itemName);
+                let parsedItem;
+    
+                if (!localStorageItem) {
+                    localStorage.setItem(itemName, JSON.stringify(initialValue));
+                    parsedItem = initialValue;
+                } else {
+                    parsedItem = JSON.parse(localStorageItem);
+                    setItem(parsedItem);
+                }
+                setLoading(false);
+    
+            } catch (error) {
+                setLoading(false);
+                setError(true);
+            }
+        }, 2000);
+    }, []);
+    const saveItem = (newItem) => {
+        localStorage.setItem(itemName, JSON.stringify(newItem));
+        setItem(newItem);
+    };
 
-    return [storedValue, setStoredValue];
+    return {
+        item,
+        saveItem,
+        loading,
+        error,
+    };
 }
-
-export default useLocalStorage;
