@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useState } from 'react';
@@ -7,6 +8,7 @@ const TodoContext = createContext();
 
 function TodoProvider({ children }) {
     const [searchValue, setSearchValue] = useState("");
+    const [openModal, setOpenModal] = useState(true);
     useEffect(() => {
         if (searchValue === "") {
             return;
@@ -56,6 +58,8 @@ function TodoProvider({ children }) {
       searchedTodos,
       handleCheck,
       handleDelete,
+      openModal,
+      setOpenModal,
     }}>
       {children}
     </TodoContext.Provider>

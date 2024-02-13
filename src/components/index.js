@@ -6,6 +6,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 import { DeleteIcon } from "./icons/DeleteIcon";
 import { CompletedIcon } from "./icons/CompletedIcon";
 import { Loading } from "./Loading";
+import { Modal } from "../components/Modal";
 
 export { 
     TodoCounter,
@@ -16,4 +17,5 @@ export {
     DeleteIcon,
     CompletedIcon,
     Loading,
+    Modal,
 };
