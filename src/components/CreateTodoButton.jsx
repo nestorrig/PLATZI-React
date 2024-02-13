@@ -1,13 +1,19 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import "./styles/CreateTodoButton.css";
+import { TodoContext } from "./TodoContext";
 
-function CreateTodoButton({ setOpenModal }) {
-  const handleClick = () => {
-    setOpenModal((prevState) => !prevState);
-  };
+function CreateTodoButton() {
+  const { setOpenModal } = useContext(TodoContext);
+  
   return (
     <>
-      <button className="CreateTodoButton" onClick={handleClick}>
+      <button
+        className="CreateTodoButton"
+        onClick={() => {
+          setOpenModal((prevState) => !prevState);
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

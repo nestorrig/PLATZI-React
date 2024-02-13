@@ -1,5 +1,6 @@
 .CreateTodoButton {
     position: fixed;
+    z-index: 2;
     bottom: 16px;
     right: 16px;
     width: 60px;
@@ -10,4 +11,14 @@
     border-radius: 50%;
     box-shadow: 0 0 10px var(--Button);
     cursor: pointer;
+    transition: all 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.CreateTodoButton:hover {
+    filter: brightness(1.2);
+    transform: rotate(360deg);
+}
+
+.CreateTodoButton:active {
+    transform: scale(.7);
 }

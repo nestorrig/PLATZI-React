@@ -7,8 +7,9 @@ import {
   CreateTodoButton,
   Loading,
   Modal,
+  TodoContext,
+  TodoForm,
 } from "../components";
-import { TodoContext } from "../components/TodoContext";
 
 function AppUI() {
   const {
@@ -22,7 +23,6 @@ function AppUI() {
     handleCheck,
     handleDelete,
     openModal,
-    setOpenModal,
   } = useContext(TodoContext);
 
   return (
@@ -46,17 +46,10 @@ function AppUI() {
           />
         ))}
       </TodoList>
-      <CreateTodoButton setOpenModal={setOpenModal} />
+      <CreateTodoButton/>
       {openModal && (
         <Modal>
-          <form>
-            <label htmlFor="Todo">Añade tu nueva tarea</label>
-            <textarea placeholder="Escribe aquí tu TODO..." id="Todo"></textarea>
-            <div>
-              <button onClick={() => setOpenModal(false)}>Crear TODO</button>
-              <button onClick={() => setOpenModal(false)}>Cancelar</button>
-            </div>
-          </form>
+          <TodoForm/>
         </Modal>
       )}
     </>
