@@ -14,9 +14,9 @@
     transition: all 0.3s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.CreateTodoButton:hover {
+.CreateTodoButton-active {
     filter: brightness(1.2);
-    transform: rotate(360deg);
+    transform: rotate(180deg);
 }
 
 .CreateTodoButton:active {

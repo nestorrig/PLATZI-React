@@ -4,12 +4,13 @@ import "./styles/CreateTodoButton.css";
 import { TodoContext } from "./TodoContext";
 
 function CreateTodoButton() {
-  const { setOpenModal } = useContext(TodoContext);
-  
+  const { setOpenModal, openModal } = useContext(TodoContext);
   return (
     <>
       <button
-        className="CreateTodoButton"
+        className={`CreateTodoButton ${
+          openModal ? "CreateTodoButton-active" : ""
+        }`}
         onClick={() => {
           setOpenModal((prevState) => !prevState);
         }}

@@ -48,6 +48,16 @@ function TodoProvider({ children }) {
     setTodos(todos.filter((todo) => todo.text !== todoText));
   };
 
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      text,
+      completed: false,
+    });
+    setTodos(newTodos);
+    console.log(newTodos);
+  };
+
   return (
     <TodoContext.Provider
       value={{
@@ -60,6 +70,7 @@ function TodoProvider({ children }) {
         searchedTodos,
         handleCheck,
         handleDelete,
+        addTodo,
         openModal,
         setOpenModal,
       }}
