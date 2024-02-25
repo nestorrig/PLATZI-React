@@ -30,7 +30,7 @@ export function TodoForm() {
         value={newTodoValue}
       ></textarea>
       <div>
-        <button type="button" onClick={onCancel}>
+        <button type="button" onClick={onCancel} className="b text-yellow-500">
           Cancelar
         </button>
         <button type="submit">Crear TODO</button>

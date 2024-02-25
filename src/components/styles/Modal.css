@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   background-color: var(--task-bg);
-  
+
   form {
     display: flex;
     flex-direction: column;
@@ -15,13 +15,13 @@
     justify-content: center;
     padding: 20px;
   }
-  
+
   label {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
   }
-  
+
   textarea {
     width: 100%;
     height: 200px;
@@ -31,13 +31,13 @@
     border: 1px solid #ccc;
     margin-bottom: 10px;
   }
-  
+
   div {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  
+
   button {
     padding: 10px 20px;
     font-size: 16px;
@@ -45,12 +45,12 @@
     border: none;
     cursor: pointer;
   }
-  
+
   button:first-child {
     background-color: #4caf50;
     color: white;
   }
-  
+
   button:last-child {
     background-color: #f44336;
     color: white;

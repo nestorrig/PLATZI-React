@@ -1,8 +1,0 @@
-.TodoList {
-    padding: 56px 16px;
-    padding-right: 28px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}

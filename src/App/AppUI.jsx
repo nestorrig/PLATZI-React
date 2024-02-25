@@ -26,7 +26,7 @@ function AppUI() {
   } = useContext(TodoContext);
 
   return (
-    <>
+    <div className="bg-background dark:bg-dark-background min-h-screen text-normal-text dark:text-dark-normal-text">
       <TodoCounter completed={completedTodos} total={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
@@ -46,13 +46,13 @@ function AppUI() {
           />
         ))}
       </TodoList>
-      <CreateTodoButton/>
+      <CreateTodoButton />
       {openModal && (
         <Modal>
-          <TodoForm/>
+          <TodoForm />
         </Modal>
       )}
-    </>
+    </div>
   );
 }
 export { AppUI };
