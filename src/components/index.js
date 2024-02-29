@@ -5,7 +5,6 @@ import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
 import { DeleteIcon } from "./icons/DeleteIcon";
 import { CompletedIcon } from "./icons/CompletedIcon";
-import { Modal } from "../components/Modal";
 import { TodoContext } from "./TodoContext";
 
 export {
@@ -16,6 +15,5 @@ export {
   CreateTodoButton,
   DeleteIcon,
   CompletedIcon,
-  Modal,
   TodoContext,
 };

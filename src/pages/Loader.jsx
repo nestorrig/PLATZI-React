@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import "../components/styles/Loading.css";
 import { TodoContext } from "../components";
 
 export function Loader() {

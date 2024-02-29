@@ -22,7 +22,7 @@ export function NewTask() {
 
   return (
     <section
-      className={`bg-task-bg dark:bg-dark-task-bg w-screen max-w-[400px] min-h-svh fixed transition-all top-0 right-0 ${
+      className={`bg-task-bg dark:bg-dark-task-bg w-screen h-svh max-w-[400px] fixed transition-all top-0 right-0 ${
         openModal ? "translate-x-0" : " translate-x-[100vw]"
       }`}
     >

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
-import "./styles/CreateTodoButton.css";
+// import "./styles/CreateTodoButton.css";
 import { TodoContext } from "./TodoContext";
 
 function CreateTodoButton() {
@@ -8,8 +8,8 @@ function CreateTodoButton() {
   return (
     <>
       <button
-        className={`CreateTodoButton ${
-          openModal ? "CreateTodoButton-active" : ""
+        className={`fixed z-10 bottom-4 right-4 w-16 h-16 grid place-content-center bg-light-primary-100 dark:bg-dark-primary-100 rounded-full shadow-button cursor-pointer transition-all ease-in-out duration-300 transform active:scale-75 ${
+          openModal ? "" : ""
         }`}
         onClick={() => {
           setOpenModal((prevState) => !prevState);

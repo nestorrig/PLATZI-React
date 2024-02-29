@@ -12,7 +12,7 @@ function TodoCounter({ total, completed }) {
   }
 
   return (
-    <h1 className="m-auto py-4 px-6 max-w-[800px] text-center text-bold-text dark:text-dark-bold-text text-4xl font-bold">
+    <h1 className="m-auto py-4 px-6 max-w-[800px] text-center text-4xl font-bold">
       {message}
     </h1>
   );

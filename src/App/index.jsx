@@ -1,4 +1,3 @@
-import '../reset.css'
 import { AppUI } from "./AppUI";
 import { TodoProvider } from "../components/TodoContext";
 
@@ -9,7 +8,7 @@ function App() {
         <AppUI />
       </TodoProvider>
     </>
-  )
+  );
 }
 
-export { App }
+export { App };
