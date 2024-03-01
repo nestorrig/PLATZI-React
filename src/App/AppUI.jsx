@@ -1,14 +1,15 @@
 import { Home, Loader, Menu, NewTask } from "../pages";
 
 function AppUI() {
-
   return (
-   <>
-    <Menu />
-    <Home />
-    <NewTask />
-    <Loader />
-   </>
+    <div className="overflow-hidden lg:flex">
+      <Menu />
+      <div className="w-full">
+        <Home />
+        <NewTask />
+        <Loader />
+      </div>
+    </div>
   );
 }
 export { AppUI };

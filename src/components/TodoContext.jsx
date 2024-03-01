@@ -9,6 +9,7 @@ const TodoContext = createContext();
 function TodoProvider({ children }) {
   const [searchValue, setSearchValue] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   useEffect(() => {
     if (searchValue === "") {
       return;
@@ -73,6 +74,8 @@ function TodoProvider({ children }) {
         addTodo,
         openModal,
         setOpenModal,
+        openMenu,
+        setOpenMenu,
       }}
     >
       {children}

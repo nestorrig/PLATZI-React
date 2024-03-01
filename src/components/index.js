@@ -6,6 +6,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 import { DeleteIcon } from "./icons/DeleteIcon";
 import { CompletedIcon } from "./icons/CompletedIcon";
 import { TodoContext } from "./TodoContext";
+import { HeaderHome } from "./headerHome";
 
 export {
   TodoCounter,
@@ -16,4 +17,5 @@ export {
   DeleteIcon,
   CompletedIcon,
   TodoContext,
+  HeaderHome,
 };
