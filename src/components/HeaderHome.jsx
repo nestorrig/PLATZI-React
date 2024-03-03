@@ -3,16 +3,15 @@ import { TodoContext } from "./TodoContext";
 import { TodoSearch } from "./TodoSearch";
 
 export const HeaderHome = () => {
-  const { searchValue, setSearchValue, openMenu, setOpenMenu } =
-    useContext(TodoContext);
+  const { searchValue, setSearchValue, setOpenMenu } = useContext(TodoContext);
 
-  const handleMenu = () => {
-    setOpenMenu(!openMenu);
+  const openMenu = () => {
+    setOpenMenu(true);
   };
 
   return (
     <header className="flex items-center justify-between px-2 py-6">
-      <button className="w-10 h-10 lg:hidden" onClick={handleMenu}>
+      <button className="w-10 h-10 lg:hidden" onClick={openMenu}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

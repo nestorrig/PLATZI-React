@@ -1,7 +1,5 @@
 import { useContext } from "react";
 import {
-  // TodoCounter,
-  // TodoSearch,
   TodoList,
   TodoItem,
   CreateTodoButton,
@@ -11,10 +9,6 @@ import {
 
 export function Home() {
   const {
-    // completedTodos,
-    // totalTodos,
-    // searchValue,
-    // setSearchValue,
     loading,
     error,
     searchedTodos,
@@ -30,7 +24,7 @@ export function Home() {
         openModal ? "brightness-50" : ""
       } ${
         openMenu
-          ? "t translate-x-2/3 scale-75 rounded-3xl h-screen overflow-hidden"
+          ? "translate-x-2/3 scale-90 rounded-3xl h-screen overflow-hidden"
           : "min-h-screen"
       } transition-all`}
     >

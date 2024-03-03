@@ -7,6 +7,7 @@ import { DeleteIcon } from "./icons/DeleteIcon";
 import { CompletedIcon } from "./icons/CompletedIcon";
 import { TodoContext } from "./TodoContext";
 import { HeaderHome } from "./headerHome";
+import { ToggleThemeButton } from "./ToggleThemeButton";
 
 export {
   TodoCounter,
@@ -18,4 +19,5 @@ export {
   CompletedIcon,
   TodoContext,
   HeaderHome,
+  ToggleThemeButton,
 };

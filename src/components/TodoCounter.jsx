@@ -11,10 +11,6 @@ function TodoCounter({ total, completed }) {
     message = `Has completado ${completed} de ${total} TODOS`;
   }
 
-  return (
-    <h1 className="m-auto py-4 px-6 max-w-[800px] text-center text-4xl font-bold">
-      {message}
-    </h1>
-  );
+  return <h1 className="py-8 max-w-[800px] text-xl font-bold">{message}</h1>;
 }
 export { TodoCounter };

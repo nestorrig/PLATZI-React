@@ -59,6 +59,13 @@ function TodoProvider({ children }) {
     console.log(newTodos);
   };
 
+  //Theme
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+
   return (
     <TodoContext.Provider
       value={{
@@ -76,6 +83,8 @@ function TodoProvider({ children }) {
         setOpenModal,
         openMenu,
         setOpenMenu,
+        isDarkMode,
+        setIsDarkMode,
       }}
     >
       {children}
