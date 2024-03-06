@@ -8,6 +8,8 @@ import { CompletedIcon } from "./icons/CompletedIcon";
 import { TodoContext } from "./TodoContext";
 import { HeaderHome } from "./headerHome";
 import { ToggleThemeButton } from "./ToggleThemeButton";
+import { Profile } from "./Profile";
+import { AddProfileInfo } from "./AddProfileInfo";
 
 export {
   TodoCounter,
@@ -20,4 +22,6 @@ export {
   TodoContext,
   HeaderHome,
   ToggleThemeButton,
+  Profile,
+  AddProfileInfo,
 };

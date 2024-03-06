@@ -14,14 +14,13 @@ export function Home() {
     searchedTodos,
     handleCheck,
     handleDelete,
-    openModal,
+    openNewTask,
     openMenu,
   } = useContext(TodoContext);
-  console.log(openMenu);
   return (
     <div
       className={`bg-light-bg-100 dark:bg-dark-bg-100 text-light-text-100 dark:text-dark-text-100 relative ${
-        openModal ? "brightness-50" : ""
+        openNewTask ? "brightness-50" : ""
       } ${
         openMenu
           ? "translate-x-2/3 scale-90 rounded-3xl h-screen overflow-hidden"

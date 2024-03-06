@@ -1,21 +1,16 @@
 /* eslint-disable react/prop-types */
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const TodoContext = createContext();
 
 function TodoProvider({ children }) {
   const [searchValue, setSearchValue] = useState("");
-  const [openModal, setOpenModal] = useState(false);
+  const [openNewTask, setOpenNewTask] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-  useEffect(() => {
-    if (searchValue === "") {
-      return;
-    }
-    // console.log('los valores de searchValue son: ' + searchValue);
-  }, [searchValue]);
+  const [percentage, setPercentage] = useState(0);
+  const [gradientColors, setGradientColors] = useState([]);
 
   const {
     item: todos,
@@ -65,31 +60,79 @@ function TodoProvider({ children }) {
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
   );
+  useEffect(() => {
+    if (isDarkMode) {
+      setGradientColors(["#E74C3C", "#2d2d2d"]);
+    } else {
+      setGradientColors(["#EF5350", "#e5e5e5"]);
+    }
+  }, [isDarkMode]);
 
-  return (
-    <TodoContext.Provider
-      value={{
-        loading,
-        error,
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        handleCheck,
-        handleDelete,
-        addTodo,
-        openModal,
-        setOpenModal,
-        openMenu,
-        setOpenMenu,
-        isDarkMode,
-        setIsDarkMode,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+  useEffect(() => {
+    setPercentage((completedTodos / totalTodos) * 100);
+  }, [totalTodos, completedTodos]);
+
+  const { item: image, saveItem: setImage } = useLocalStorage("image", "");
+const [selectedFile, setSelectedFile] = useState(null);
+
+const handleFileSelect = (event) => {
+  setSelectedFile(event.target.files[0]);
+};
+
+const uploadImage = () => {
+  if (selectedFile) {
+    const reader = new FileReader();
+    reader.onload = (readerEvent) => {
+      const binaryString = readerEvent.target.result;
+      const base64 = btoa(binaryString);
+      if (base64.length > 3 * 1024 * 1024) { // 3MB in base64
+        alert("!El archivo es muy grande!, el maximo es 3MB");
+      } else {
+        setImage(base64);
+      }
+    };
+    reader.readAsBinaryString(selectedFile);
+  }
+};
+
+  const { item: name, saveItem: setName } = useLocalStorage("name", "");
+  const [activeProfileForm, setActiveProfileForm] = useState(false);
+  const [activeProfileFormSection, setActiveProfileFormSection] = useState(0);
+
+  const values = {
+    loading,
+    error,
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    handleCheck,
+    handleDelete,
+    addTodo,
+    openNewTask,
+    setOpenNewTask,
+    openMenu,
+    setOpenMenu,
+    isDarkMode,
+    setIsDarkMode,
+    percentage,
+    setPercentage,
+    gradientColors,
+    setGradientColors,
+    image,
+    setImage,
+    uploadImage,
+    handleFileSelect,
+    name,
+    setName,
+    activeProfileForm,
+    setActiveProfileForm,
+    activeProfileFormSection,
+    setActiveProfileFormSection,
+  };
+
+  return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 }
 
 export { TodoContext, TodoProvider };
