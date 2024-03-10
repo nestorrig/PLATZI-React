@@ -73,31 +73,40 @@ function TodoProvider({ children }) {
   }, [totalTodos, completedTodos]);
 
   const { item: image, saveItem: setImage } = useLocalStorage("image", "");
-const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
-const handleFileSelect = (event) => {
-  setSelectedFile(event.target.files[0]);
-};
+  const handleFileSelect = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
-const uploadImage = () => {
-  if (selectedFile) {
-    const reader = new FileReader();
-    reader.onload = (readerEvent) => {
-      const binaryString = readerEvent.target.result;
-      const base64 = btoa(binaryString);
-      if (base64.length > 3 * 1024 * 1024) { // 3MB in base64
-        alert("!El archivo es muy grande!, el maximo es 3MB");
-      } else {
-        setImage(base64);
-      }
-    };
-    reader.readAsBinaryString(selectedFile);
-  }
-};
+  const uploadImage = async () => {
+    if (selectedFile) {
+      const reader = new FileReader();
+
+      const fileReadPromise = new Promise((resolve, reject) => {
+        reader.onload = (readerEvent) => {
+          const binaryString = readerEvent.target.result;
+          const base64 = btoa(binaryString);
+          if (base64.length > 3 * 1024 * 1024) {
+            // 3MB in base64
+            setErrorMessage("!El archivo es muy grande!, el maximo es 3MB");
+            reject(new Error("!El archivo es muy grande!, el maximo es 3MB"));
+          } else {
+            setImage(base64);
+            resolve();
+          }
+        };
+      });
+
+      reader.readAsBinaryString(selectedFile);
+      await fileReadPromise;
+    }
+  };
 
   const { item: name, saveItem: setName } = useLocalStorage("name", "");
   const [activeProfileForm, setActiveProfileForm] = useState(false);
   const [activeProfileFormSection, setActiveProfileFormSection] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const values = {
     loading,
@@ -130,6 +139,8 @@ const uploadImage = () => {
     setActiveProfileForm,
     activeProfileFormSection,
     setActiveProfileFormSection,
+    errorMessage,
+    setErrorMessage,
   };
 
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;

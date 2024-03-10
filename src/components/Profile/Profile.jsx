@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TodoContext } from "./TodoContext";
+import { TodoContext } from "../TodoContext";
 
 export const Profile = () => {
   const {
@@ -17,8 +17,11 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="w-32 h-32 p-[2px] rounded-full" style={gradientStyle}>
-        <div className="relative bg-light-bg-300 dark:bg-dark-bg-300 w-full h-full rounded-full">
+      <div
+        className="w-32 h-32 p-[2px] rounded-full rotate-[135deg]"
+        style={gradientStyle}
+      >
+        <div className="relative bg-light-bg-300 dark:bg-dark-bg-300 w-full h-full rounded-full rotate-[225deg]">
           <figure className="w-full h-full rounded-full p-1">
             {image && (
               <img

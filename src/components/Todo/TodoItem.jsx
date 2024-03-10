@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { CompletedIcon } from "./icons/CompletedIcon";
-import { DeleteIcon } from "./icons/DeleteIcon";
+import { CompletedIcon } from "../icons/CompletedIcon";
+import { DeleteIcon } from "../icons/DeleteIcon";
 
 function TodoItem({ text, completed, onCheck, onDelete }) {
   const [isDeleting, setIsDeleting] = useState(false);
