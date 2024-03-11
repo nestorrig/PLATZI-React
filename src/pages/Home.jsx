@@ -19,13 +19,13 @@ export function Home() {
   } = useContext(TodoContext);
   return (
     <div
-      className={`bg-light-bg-100 dark:bg-dark-bg-100 text-light-text-100 dark:text-dark-text-100 relative ${
+      className={`bg-light-bg-100 dark:bg-dark-bg-100 text-light-text-100 dark:text-dark-text-100 relative lg:w-[calc(100%-300px)] lg:left-[300px] ${
         openNewTask ? "brightness-50" : ""
       } ${
         openMenu
-          ? "translate-x-2/3 scale-90 rounded-3xl h-screen overflow-hidden"
+          ? "translate-x-2/3 scale-90 rounded-3xl h-screen overflow-hidden md:scale-100 md:rounded-none md:translate-x-[300px]"
           : "min-h-screen"
-      } transition-all`}
+      }  transition-transform`}
     >
       <HeaderHome />
       <TodoList>

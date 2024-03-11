@@ -5,12 +5,12 @@
 @keyframes disapear {
   0% {
     opacity: 1;
-    transform: scale(1);
+    transform: scaleY(1);
   }
 
   100% {
     opacity: 0;
-    transform: scale(0);
+    transform: scaleY(0);
   }
 }
 
@@ -40,4 +40,25 @@
   100% {
     transform: rotate(1turn)
   }
+}
+
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+.dark body::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.dark body::-webkit-scrollbar-thumb {
+  background-color: #454545;
+}
+
+body::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #bdbdbd;
 }

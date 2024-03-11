@@ -14,7 +14,7 @@ export const NameForm = ({ inputValue, onInputChange, onSubmit }) => {
         placeholder="Capipepo Martinez"
         value={inputValue}
         onChange={onInputChange}
-        className="rounded-md p-2 dark:bg-dark-bg-300"
+        className="rounded-md p-2 dark:bg-dark-bg-300  outline-none focus:ring-2 focus:ring-light-bg-100 dark:focus:ring-dark-bg-100"
         maxLength={35}
       />
       <div className="h-4 p-1">
@@ -22,7 +22,7 @@ export const NameForm = ({ inputValue, onInputChange, onSubmit }) => {
       </div>
       <button
         onClick={onSubmit}
-        className="mt-4 bg-light-primary-100 dark:bg-dark-primary-100 text-dark-text-100 p-2 rounded-md"
+        className="mt-4 bg-light-primary-100 dark:bg-dark-primary-100 text-dark-text-100 p-2 rounded-md hover:bg-light-accent-200 dark:hover:bg-dark-accent-100 active:scale-90 transition-all"
       >
         Siguiente
       </button>
