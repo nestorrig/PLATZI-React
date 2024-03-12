@@ -8,7 +8,7 @@ import {
 } from "../components";
 
 export function Menu() {
-  const { setOpenMenu } = useContext(TodoContext);
+  const { setOpenMenu, openNewTask } = useContext(TodoContext);
 
   const closeMenu = () => {
     setOpenMenu(false);
@@ -16,7 +16,11 @@ export function Menu() {
 
   return (
     <>
-      <div className="flex items-center justify-start fixed top-0 z-0 w-screen md:w-[300px] h-screen bg-light-bg-300 dark:bg-dark-bg-300 text-light-text-100 dark:text-dark-text-100">
+      <div
+        className={`flex items-center justify-start fixed top-0 z-0 w-screen md:w-[300px] h-screen bg-light-bg-300 dark:bg-dark-bg-300 text-light-text-100 dark:text-dark-text-100 ${
+          openNewTask ? "brightness-50" : ""
+        }`}
+      >
         <div className="relative w-2/3 md:w-11/12 lg:w-full h-[90%] p-4 bg-dark-pimary-100">
           <button
             className="absolute top-2 right-2 w-10 h-10 flex justify-center items-center rounded-full border-2 border-light-bg-200 dark:border-dark-bg-200 lg:hidden"

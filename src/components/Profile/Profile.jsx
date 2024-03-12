@@ -9,6 +9,7 @@ export const Profile = () => {
     name,
     setActiveProfileForm,
     setActiveProfileFormSection,
+    totalTodos,
   } = useContext(TodoContext);
 
   const gradientStyle = {
@@ -18,7 +19,11 @@ export const Profile = () => {
   return (
     <>
       <div
-        className="w-32 h-32 p-[2px] rounded-full rotate-[135deg]"
+        className={`w-32 h-32 p-[2px] rounded-full rotate-[135deg] ${
+          totalTodos === 0
+            ? "border-2 border-light-bg-200 dark:border-dark-bg-200"
+            : ""
+        }`}
         style={gradientStyle}
       >
         <div className="relative bg-light-bg-300 dark:bg-dark-bg-300 w-full h-full rounded-full rotate-[225deg]">
