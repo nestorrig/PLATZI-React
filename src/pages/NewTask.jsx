@@ -56,7 +56,10 @@ export function NewTask() {
             ></path>
           </svg>
         </button>
-        <form onSubmit={onSubmit} className="flex flex-col gap-2 w-full">
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col gap-2 w-full max-w-[400px]"
+        >
           <label
             htmlFor="todo"
             className="text-2xl font-bold mb-8 dark:text-dark-text-100"
