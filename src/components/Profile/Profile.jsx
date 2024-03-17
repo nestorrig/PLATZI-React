@@ -69,7 +69,7 @@ export const Profile = () => {
             setActiveProfileFormSection(1);
           }}
         >
-          Change your name
+          Cambia tu nombre
         </button>
       </article>
     </>

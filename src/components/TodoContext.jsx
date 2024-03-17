@@ -51,7 +51,6 @@ function TodoProvider({ children }) {
       completed: false,
     });
     setTodos(newTodos);
-    console.log(newTodos);
   };
 
   //Theme

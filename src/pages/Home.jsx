@@ -29,9 +29,11 @@ export function Home() {
     >
       <HeaderHome />
       <TodoList>
-        {error && <p>Desespera, hubo un error...</p>}
+        {error && <p className="text-lg text-light-primary-100 dark:text-dark-primary-100">hubo un error... recarga la pagina.</p>}
 
-        {!loading && searchedTodos.length === 0 && <p>Crea tu primer TODO</p>}
+        {!loading && searchedTodos.length === 0 && (
+          <p className="font-bold text-2xl">Crea tu primer TODO</p>
+        )}
 
         {searchedTodos.map((todo) => (
           <TodoItem
