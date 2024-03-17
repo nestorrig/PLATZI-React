@@ -2,21 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@keyframes disapear {
-  0% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-}
-
-.disappear {
-  animation: disapear 0.3s ease-in-out forwards;
-}
 
 .loader {
   margin: 0 auto;
