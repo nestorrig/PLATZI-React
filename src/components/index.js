@@ -6,7 +6,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 import { DeleteIcon } from "./icons/DeleteIcon";
 import { CompletedIcon } from "./icons/CompletedIcon";
 import { TodoContext } from "./TodoContext";
-import { HeaderHome } from "./HeaderHomeeaderHome";
+import { HeaderHome } from "./HeaderHome";
 import { ToggleThemeButton } from "./ToggleThemeButton";
 import { Profile } from "./Profile";
 import { AddProfileInfo } from "./Profile";
