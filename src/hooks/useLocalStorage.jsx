@@ -52,7 +52,7 @@ const defaultTodos = [
     completed: true,
   },
   {
-    text: "Usa el menu para cammbiar aspactos de la aplicacion y datos sobre tus tareas",
+    text: "Usa el menu para cambiar aspectos de la aplicacion y datos sobre tus tareas",
     completed: false,
   },
   { text: "Usa el buscador para filtrar tareas", completed: false },
