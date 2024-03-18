@@ -44,15 +44,15 @@ const defaultTodos = [
     completed: false,
   },
   {
-    text: "Usa el botton de la derecha para borrar una tarea",
+    text: "Usa el boton de la derecha para borrar una tarea",
     completed: true,
   },
   {
-    text: "Usa el boton del fondo para garegar nuevas tareas",
+    text: "Usa el boton del fondo para agregar nuevas tareas",
     completed: true,
   },
   {
-    text: "Usa el menu para cambiar aspectos de la aplicacion y datos sobre tus tareas",
+    text: "Usa el menu para cambiar aspectos de la aplicacion y visualizar datos sobre tus tareas",
     completed: false,
   },
   { text: "Usa el buscador para filtrar tareas", completed: false },
